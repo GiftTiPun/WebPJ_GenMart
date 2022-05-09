@@ -1,0 +1,28 @@
+{
+    "item1":{
+        "name":"Intertwined Wish",
+        "price":"200",
+        "pic":"GenshinWEBPJ/wishpink.png"
+    }, 
+    "item2":{
+        "name":"Acquaint Wish",
+        "price":"200",
+        "pic":"GenshinWEBPJ/wishblue.png"
+    },
+    "item3":{
+        "name":"Primogem",
+        "price":"200",
+        "pic":"GenshinWEBPJ/Primogem.png"
+    },
+    "item4":{
+        "name":"Fragile Resin",
+        "price":"200",
+        "pic":"GenshinWEBPJ/fragile.png"
+    },
+    "item5":{
+        "name":"Condensed Resin",
+        "price":"200",
+        "pic":"GenshinWEBPJ/conden.png"
+    }
+}
+

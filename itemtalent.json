@@ -1,0 +1,53 @@
+{
+    "itemt1":{
+        "name":"Crown of Insight",
+        "price":"200",
+        "pic":"GenshinWEBPJ/crown.png"
+    }, 
+    "itemt2":{
+        "name":"Philosophies of Freedom",
+        "price":"200",
+        "pic":"GenshinWEBPJ/freedom.png"
+    },
+    "itemt3":{
+        "name":"Philosophies of Resistance",
+        "price":"200",
+        "pic":"GenshinWEBPJ/resistance.png"
+    },
+    "itemt4":{
+        "name":"Philosophies of Ballad",
+        "price":"200",
+        "pic":"GenshinWEBPJ/ballad.png"
+    },
+    "itemt5":{
+        "name":"Philosophies of Prosperity",
+        "price":"200",
+        "pic":"GenshinWEBPJ/prosperity.png"
+    },
+    "itemt6":{
+        "name":"Philosophies of Diligence",
+        "price":"200",
+        "pic":"GenshinWEBPJ/diligence.png"
+    }, 
+    "itemt7":{
+        "name":"Philosophies of Gold",
+        "price":"200",
+        "pic":"GenshinWEBPJ/gold.png"
+    },
+    "itemt8":{
+        "name":"Philosophies of Transience",
+        "price":"200",
+        "pic":"GenshinWEBPJ/transience.png"
+    },
+    "itemt9":{
+        "name":"Philosophies of Elegance",
+        "price":"200",
+        "pic":"GenshinWEBPJ/elegance.png"
+    },
+    "itemt10":{
+        "name":"Philosophies of Light",
+        "price":"200",
+        "pic":"GenshinWEBPJ/light.png"
+    }
+}
+
