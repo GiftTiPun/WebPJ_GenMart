@@ -140,7 +140,72 @@ a{
 h3{
     margin-top: 5%;
 }
+#payment{
+    width: 100%;
+    border-radius: 30px;
+}
+.paymentsucc{
+    margin-left: 15%;
+    margin-top: 3%;
+    margin-right: 5%;
+}
+button{
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    background-color: #c98b8b;
+    color: #FFFFFF;
+}
+.add{
+    font-size: 16px;
+    font-family: 'Quicksand', 'salmonkids';
+    padding: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 3%;
+}
+.stock{
+    width: 30%;
+    border-radius: 20px;
+    border: none;
+    background-color: #dfdfdf;
+    padding: 2%;
+    text-align: center;
+}
+.itemwi,.itemwe,.itemta{
+    font-family: 'Quicksand', 'salmonkids';
+    font-size: 16px;
+    text-align: center;
+}
 
+/* Responsive */
+@media only screen and (max-width: 768px){
+    fieldset{
+        left: 35%;
+        width: 30%;
+        height: 70%;
+        top: 23%;
+    }
+    .content{
+        margin-left: 25%;
+        margin-top: 5%;
+    }
+    #logo{
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .content{
+        margin-left: 25%;
+        margin-top: 5%;
+    }
+    .sidebar {
+        height: 100%;
+        width: 100px;
+      }
+}
 /* Background */
 .bg {
     animation:slide 3s ease-in-out infinite alternate;

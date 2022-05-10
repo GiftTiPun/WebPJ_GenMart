@@ -1,47 +1,56 @@
 {
     "itemw1":{
         "name":"Scattered Piece of Decarabian's Dream",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/dream.png"
     },
     "itemw2":{
         "name":"Boreal Wolf's Nostalgia",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/boreal.png"
     },
     "itemw3":{
         "name":"Dream of the Dandelion Gladiator",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/gladiator.png"
     },
     "itemw4":{
         "name":"Divine Body from Guyun",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/guyun.png"
     },
     "itemw5":{
         "name":"Mist Veiled Primo Elixir",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/elixir.png"
     }, 
     "itemw6":{
         "name":"Chunk of Aerosiderite",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/chunk.png"
     },
     "itemw7":{
         "name":"Golden Branch of a Distant Sea",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/sea.png"
     },
     "itemw8":{
         "name":"Narukami's Valor",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/narukami.png"
     },
     "itemw9":{
         "name":"Mask of the Kijin",
-        "price":"200",
+        "price":"35 Bth.",
+        "stock":"1000",
         "pic":"GenshinWEBPJ/kijin.png"
     }
 }
