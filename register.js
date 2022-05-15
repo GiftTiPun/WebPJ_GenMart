@@ -1,36 +1,35 @@
 window.onload = pageLoad;
 function pageLoad(){
 	var getdata = document.getElementById("myForm");
-    getdata.onsubmit = checkdata;
+    document.getElementById('regisbutt').onclick = checkdata;
     getdata.onreset = cleartext;
 }
 
 function checkdata()
 {
-    var userdata = document.forms["myForm"]["username"];
-    var passdata = document.forms["myForm"]["password"];
-    var repassdata = document.forms["myForm"]["repassword"];
-    var userstore = userdata.value;
-    sessionStorage.setItem("userRegis",userstore);
-    var passstore = repassdata.value;
-    sessionStorage.setItem("repassRegis",passstore);
-
-    if (passdata.value != repassdata.value)
-    {
-        var Error = document.getElementById("errormsg");
-        Error.textContent = "Password Not Match"
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    var usDB = document.getElementById("username").value;
+    var pwDB = document.getElementById("password").value
+    var all = usDB + pwDB;
+	writePost(all);
 }
 
 function cleartext()
 {
     var Error = document.getElementById("errormsg");
     Error.textContent = null;
+}
+async function writePost(all){
+	let response = await fetch("/writePost",{
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			user:usDB,
+			password:pwDB})
+	});
+    let content = await response.json();
 }
 
 function validateForm() {

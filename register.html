@@ -24,7 +24,7 @@
 		</ul>
 	</div >
     <div class="logoimg"><img id ="logo" src="GenshinWEBPJ/GENMART.png"/></div>
-	<form name="myForm" id="myForm" action="login.html">
+	<form name="myForm" id="myForm" action="/regisDB" method="post" accept-charset="utf-8">
 		<fieldset2>
 			<h1>Register</h1>
 			<span id="errormsg"></span>
@@ -46,15 +46,15 @@
 			<input class="boxinput" type="email" name="email" required>
 			<br><br>
 			Username
-			<input class="boxinput" type="text" name="username" required>
+			<input class="boxinput" type="text" id="username" name="username" required>
 			<br><br>
 			Password
-			<input class="boxinput" type="password" name="password" required>
+			<input class="boxinput" type="password" id="password" name="password" required>
 			<br><br>
 			Retype Password 
 			<input class="boxinput" type="password" name="repassword" required>
 			<br><br>
-			<input class="submitbutt" type="submit" value="Register">
+			<input class="submitbutt" type="submit" id="regisbutt" value="Register">
 			<input class="resetbutt" type="reset" value="Reset">
 		</fieldset2>
 	</form>
