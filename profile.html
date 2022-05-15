@@ -6,19 +6,27 @@
 	<title>GenshinMarket-Profile</title>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel='stylesheet' type='text/css' media='screen' href='settingshopping.css'>
+    <script type="text/javascript" src="profile.js"></script>
 </head>
 <body>
     <div class="sidebar">
+        
         <div class="logoimg"><img id ="logo" src="GenshinWEBPJ/GENMART.png"/></div>
+        
         <div id="browsePic">
+            <div class="item1">
             <div id="displayPic">
                 <img id="avatar" src= "GenshinWEBPJ/avatar.png" alt="">
             </div>
-            <!-- <form action="/profilepic" method="post" id="formId" enctype="multipart/form-data">
-                <input type="file" id="fileField" name="avatar" value="fileToUpload" placeholder="" hidden>
-            </form> -->
+                <form action="/profilepic" method="post" id="formId" enctype="multipart/form-data">
+                    <input type="file" id="fileField" name="avatar" value="fileToUpload" placeholder="" hidden>
+                </form>
+            </div>
         </div>
-        <a href="profile.html"><h2 class="username">Username</h2></a>
+       
+
+
+        <h2 id="username"></h2>
         <br><br>
         <a href="shoppingpage.html"><img id="cube" src="GenshinWEBPJ/3d-cube.png"></a>
         <br><br>
@@ -30,7 +38,7 @@
             <div id="displayPic">
                 <img id="avatar" src= "GenshinWEBPJ/avatar.png" alt="">
             </div>
-            <a href="profile.html"><h2 class="username">Username</h2></a>
+            <a href ="profile.html"><h2 id="username2"></h2></a>
             <!-- <form action="/profilepic" method="post" id="formId" enctype="multipart/form-data">
                 <input type="file" id="fileField" name="avatar" value="fileToUpload" placeholder="" hidden>
             </form> -->
@@ -38,7 +46,7 @@
         <div class="logoimg"><img id ="logo" src="GenshinWEBPJ/GENMART.png"/></div>
     </div>
     <div class="boxinfo">
-        <a href="index.html"><input class="logout" type="logout" value="Log out"></a>
+        <a href="/logout"><input class="logout" type="logout" value="Log out"></a>
     </div>
     <div class="bg"></div>
     <div class="bg bg2"></div>

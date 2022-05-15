@@ -50,6 +50,13 @@ a{
     width: 50%;
     border-radius: 50%;
 }
+img
+{
+    width: 50%;
+    border-radius: 25%;
+}
+
+
 .content{
     margin-left: 15%;
     margin-top: 5%;

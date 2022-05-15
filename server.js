@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-      callback(null, 'GENSHINWEBPJ/img/');
+      callback(null, 'GenshinWEBPJ/');
     },
 
     filename: (req, file, cb) => {
@@ -72,6 +72,45 @@ app.post('/regisDB', async (req,res) => {
     return res.redirect('index.html');
 })
 
+app.post('/profilepic', (req,res) => {
+    let upload = multer({ storage: storage, fileFilter: imageFilter }).single('avatar');
+
+    upload(req, res, (err) => {
+
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        }
+        else if (!req.file) {
+            return res.send('Please select an image to upload wtf');
+        }
+        else if (err instanceof multer.MulterError) {
+            return res.send(err);
+        }
+        else if (err) {
+            return res.send(err);
+        }
+        let username = getCookie('username');
+        updateImg(username,req.file.filename)
+        res.cookie('img' , req.file.filename);
+        return res.redirect('profile.html')
+    });
+    function getCookie(name){
+        var value = "";
+        try{
+            // value = document.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
+            value = req.headers.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
+            return value
+        }catch(err){
+            return false
+        } 
+    }
+})
+
+const updateImg = async (username, filen) => {   
+    let sql = `UPDATE ${tablename} SET img = '${filen}' WHERE username = '${username}'`;
+    let result = await queryDB(sql);
+    console.log(result);
+}
 
 let tablename = "userinfo";
 //ทำให้สมบูรณ์
@@ -109,6 +148,11 @@ app.post('/checkLogin',async (req,res) => {
     }
 })
 
+app.get('/logout', (req,res) => {
+    res.clearCookie('username');
+    res.clearCookie('img');
+    return res.redirect('index.html');
+})
 
  app.listen(port, hostname, () => {
         console.log(`Server running at   http://${hostname}:${port}/index.html`);

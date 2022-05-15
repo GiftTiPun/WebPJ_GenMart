@@ -1,4 +1,8 @@
+
+
 window.onload = pageLoad;
+
+
 function pageLoad(){
 	var getdata = document.getElementById("myForm");
     document.getElementById('regisbutt').onclick = checkdata;
