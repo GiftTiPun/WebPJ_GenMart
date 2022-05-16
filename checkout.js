@@ -27,7 +27,7 @@ function pageLoad(){
     
 
     console.log(getCookie('img'));
-	showImg('GenshinWEBPJ/'+getCookie('img'));
+	showImg('img/'+getCookie('img'));
 }
 
 
