@@ -93,6 +93,7 @@ app.post('/profilepic', (req,res) => {
         updateImg(username,req.file.filename)
         res.cookie('img' , req.file.filename);
         return res.redirect('profile.html')
+         
     });
     function getCookie(name){
         var value = "";
@@ -147,6 +148,8 @@ app.post('/checkLogin',async (req,res) => {
         return res.redirect('index.html?error=1');
     }
 })
+
+
 
 app.get('/logout', (req,res) => {
     res.clearCookie('username');
