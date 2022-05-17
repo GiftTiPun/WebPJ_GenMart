@@ -63,15 +63,15 @@ a{
 }
 #displayPic img
 {
-    width: 50%;
+    width: 110px;
+    height: 110px;
     border-radius: 25%;
 }
 #displayPic2 img
 {
     width: 250px;
     height: 250px;
-    border-radius: 25%;
-    
+    border-radius: 50%; 
 }
 
 
