@@ -140,20 +140,26 @@ function showDatatalent(data){
     }
 }
 
-function DecreaseItem(){
+function DecreaseItem(data){
     console.log("-");
-    var value = parseInt(document.getElementById('numstock').value, 10);
+    var value = parseInt(document.getElementById('numstock'+data).value, 10);
     value = isNaN(value) ? 0 : value;
     value < 1 ? value = 1 : '';
     value--;
-    document.getElementById('numstock').value = value;
+    document.getElementById('numstock'+data).value = value;
 }
 
-function PlusItem(){
+function PlusItem(data){
     console.log("+");
-    var value = parseInt(document.getElementById('numstock').value, 10);
+    var value = parseInt(document.getElementById('numstock'+data).value, 10);
     value = isNaN(value) ? 0 : value;
     value++;
-    document.getElementById('numstock').value = value;
+    document.getElementById('numstock'+data).value = value;
+}
+
+function AddtoCart(data){
+    console.log("Add");
+    var ItemNum = document.getElementById("item"+data);
+    var ItemName = document.getElementById("item"+data);
 }
 
