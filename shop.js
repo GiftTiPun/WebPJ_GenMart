@@ -2,30 +2,46 @@ window.onload = pageLoad;
 
 function pageLoad(){
 	var xhr = new XMLHttpRequest(); 
+    var xhr1 = new XMLHttpRequest(); 
+    var xhr2 = new XMLHttpRequest(); 
      xhr.open("GET", "itemgasha.json");
-     xhr.open("GET", "itemweapon.json");
-     xhr.open("GET", "itemtalent.json"); 
      xhr.onload = function() { 
-         var jsondata = JSON.parse(xhr.responseText);
-         console.log(jsondata);
-         showData(jsondata);
-     }; 
-     xhr.onerror = function() { alert("ERROR!"); }; 
-     xhr.send();
+        var jsongasha = JSON.parse(xhr.responseText);
+        console.log(jsongasha);
+        showDatagasha(jsongasha);
+    }; 
+    xhr.onerror = function() { alert("ERROR!"); }; 
+    xhr.send();
+
+    xhr1.open("GET", "itemweapon.json");
+    xhr1.onload = function() { 
+        var jsonweapon = JSON.parse(xhr1.responseText);
+        console.log(jsonweapon);
+        showDataweapon(jsonweapon);
+    }; 
+    xhr1.onerror = function() { alert("ERROR!"); }; 
+    xhr1.send();
+
+    xhr2.open("GET", "itemtalent.json"); 
+    xhr2.onload = function() { 
+         var jsontalent = JSON.parse(xhr2.responseText);
+         console.log(jsontalent);
+         showDatatalent(jsontalent);
+    }; 
+    xhr2.onerror = function() { alert("ERROR!"); }; 
+    xhr2.send();
 }
 
-function showData(data){
-	console.log(Object.keys(data).length);
-     var showwish = document.getElementById("container-wish")
-     var showweapon = document.getElementById("container-weapon")
-     var showtalent = document.getElementById("container-talent")
+function showDatagasha(data){
+	
+     var showwish = document.getElementById("container-wish")  
      var keys = Object.keys(data);
      for(var i =0; i< showwish.childElementCount;i++)
      {
         for( var j = 0; j < keys.length; j++)
         {
             var picwi = document.createElement("img");
-            var name = document.createElement("p");
+            var namewi = document.createElement("p");
             var temp1 = document.createElement("p");
             picwi.src = data[keys[i]].pic;
             namewi.innerHTML = data[keys[i]].name; 
@@ -35,7 +51,12 @@ function showData(data){
         showwish.children[i].appendChild(namewi);
         showwish.children[i].appendChild(temp1);
      }
-     for(var i =0; i< showweapon.childElementCount;i++)
+     
+}
+function showDataweapon(data){
+    var showweapon = document.getElementById("container-weapon")
+    var keys = Object.keys(data);
+    for(var i =0; i< showweapon.childElementCount;i++)
      {
         for( var j = 0; j < keys.length; j++)
         {
@@ -50,22 +71,42 @@ function showData(data){
         showweapon.children[i].appendChild(namewe);
         showweapon.children[i].appendChild(temp2);
      }
-     for(var i =0; i< showtalent.childElementCount;i++)
-     {
-        for( var j = 0; j < keys.length; j++)
-        {
-            var picta = document.createElement("img");
-            var nameta = document.createElement("p");
-            var temp3 = document.createElement("p");
-            picwe.src = data[keys[i]].pic;
-            nameta.innerHTML = data[keys[i]].name; 
-            temp3.innerHTML = "Price : " + data[keys[i]].price;
-        }
-        showtalent.children[i].appendChild(picta);
-        showtalent.children[i].appendChild(nameta);
-        showtalent.children[i].appendChild(temp3);
-        
-     }
+}
+function showDatatalent(data){
+    var showtalent = document.getElementById("container-talent")
+    var keys = Object.keys(data);
+    for(var i =0; i< showtalent.childElementCount;i++)
+    {
+       for( var j = 0; j < keys.length; j++)
+       {
+           var picta = document.createElement("img");
+           var nameta = document.createElement("p");
+           var temp3 = document.createElement("p");
+           picta.src = data[keys[i]].pic;
+           nameta.innerHTML = data[keys[i]].name; 
+           temp3.innerHTML = "Price : " + data[keys[i]].price;
+       }
+       showtalent.children[i].appendChild(picta);
+       showtalent.children[i].appendChild(nameta);
+       showtalent.children[i].appendChild(temp3);
+       
+    }
+}
 
+function DecreaseItem(){
+    console.log("-");
+    var value = parseInt(document.getElementById('numstock').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('numstock').value = value;
+}
+
+function PlusItem(){
+    console.log("+");
+    var value = parseInt(document.getElementById('numstock').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('numstock').value = value;
 }
 
