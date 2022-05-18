@@ -156,5 +156,5 @@ app.get('/logout', (req,res) => {
 })
 
  app.listen(port, hostname, () => {
-        console.log(`Server running at   http://${hostname}:${port}/index.html`);
+        console.log(`Server running at   http://${hostname}:${port}/register.html`);
 });

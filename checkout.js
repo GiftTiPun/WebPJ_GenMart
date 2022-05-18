@@ -19,7 +19,7 @@ function getCookie(name){
 function pageLoad(){
     document.getElementById('displayPic').onclick = fileUpload;
 	document.getElementById('fileField').onchange = fileSubmit;
-
+	document.getElementById('clearcart').onclick = test;
 	var username = getCookie('username');
     
 
@@ -33,7 +33,9 @@ function pageLoad(){
 	sessionStorage.setItem("cartdata",cartdata);
 }
 
-
+function test(){
+	sessionStorage.clear();
+}
 function fileUpload(){
 	document.getElementById('fileField').click();
 }
