@@ -226,8 +226,23 @@ input{
     }
 
 }
-
 /* Responsive */
+@media only screen and (max-width: 1024px){
+    fieldset{
+        left: 35%;
+        width: 30%;
+        top: 23%;
+    }
+    fieldset2{
+        left: 22%;
+        width: 55%;
+        height: 110%;
+        top: 23%;
+    }
+    #logo{
+        width: 30%;
+    }
+}
 @media only screen and (max-width: 768px){
     fieldset{
         left: 35%;

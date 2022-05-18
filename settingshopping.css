@@ -93,7 +93,7 @@ a{
 .container-wish div,.container-weapon div,.container-talent div{
     width:200px;
 	border-radius: 10px;
-	height: 300px;
+	height: 350px;
 	margin: 3%;
 	padding-top: 15px;
 	text-align: center;
@@ -239,6 +239,12 @@ button{
         margin-left: 20%;
         margin-top: 7%;
     }
+    #displayPic img
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 25%;
+}
 }
 
 @media only screen and (max-width: 500px){
@@ -267,6 +273,12 @@ button{
         margin-left: 20%;
         margin-top: 10%;
     }
+    #displayPic img
+{
+    width: 75px;
+    height: 75px;
+    border-radius: 25%;
+}
 }
 /* Background */
 .bg {
