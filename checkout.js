@@ -28,6 +28,9 @@ function pageLoad(){
 
     console.log(getCookie('img'));
 	showImg('img/'+getCookie('img'));
+	var cartdata = sessionStorage.getItem("cartarraykey")
+	UpdateCart(cartdata);
+	sessionStorage.setItem("cartdata",cartdata);
 }
 
 
@@ -47,4 +50,33 @@ function showImg(filename){
 		temp.src = filename;
 		showpic.appendChild(temp);
 	}
+}
+
+
+function UpdateCart(data){
+    var checkOutPanel = document.getElementById("checkoutpanel")
+	var Jsoncart = JSON.parse(data);
+    var keys = Object.keys(Jsoncart);
+	var totalPrice = 0;
+	console.log(Jsoncart);
+    for(var i =0; i< keys.length;i++)
+    {
+        var divcart = document.createElement("div")
+		divcart.className = "boxcart";
+        var piccart = document.createElement("img");
+		piccart.id = "scam";
+		var sectionsmth = document.createElement("div")
+		sectionsmth.className = "section-separation";
+		var span = document.createElement("span");
+
+        piccart.src = Jsoncart[keys[i]].Pic;
+        span.innerHTML = "x" + Jsoncart[keys[i]].Amount + " Price " + Jsoncart[keys[i]].Price+ " Bth." + " Total " + Jsoncart[keys[i]].TotalPrice + " Bth."  ;
+		divcart.appendChild(piccart);
+		divcart.appendChild(span);
+		divcart.appendChild(sectionsmth);
+       	checkOutPanel.prepend(divcart);
+		totalPrice += Jsoncart[keys[i]].TotalPrice;
+    }
+	var totalPriceText = document.getElementById("totalPriceText");
+	totalPriceText.innerHTML = "Total " +totalPrice + " Bth.";
 }

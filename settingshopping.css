@@ -155,7 +155,7 @@ a{
     width: 7%;
     margin: 2%;
 }
-.box1,.box2{
+.boxcart{
     flex-wrap: nowrap;
     text-align: center;
 }

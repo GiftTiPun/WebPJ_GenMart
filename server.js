@@ -149,8 +149,6 @@ app.post('/checkLogin',async (req,res) => {
     }
 })
 
-
-
 app.get('/logout', (req,res) => {
     res.clearCookie('username');
     res.clearCookie('img');

@@ -85,18 +85,16 @@ function showDatagasha(data){
      var keys = Object.keys(data);
      for(var i =0; i< showwish.childElementCount;i++)
      {
-        for( var j = 0; j < keys.length; j++)
-        {
-            var picwi = document.createElement("img");
-            var namewi = document.createElement("p");
-            var temp1 = document.createElement("p");
-            picwi.src = data[keys[i]].pic;
-            namewi.innerHTML = data[keys[i]].name; 
-            temp1.innerHTML = "Price : " + data[keys[i]].price;
-        }
-        showwish.children[i].appendChild(picwi);
-        showwish.children[i].appendChild(namewi);
-        showwish.children[i].appendChild(temp1);
+        var picwi = document.createElement("img");
+        var namewi = document.createElement("p");
+        var temp1 = document.createElement("p");
+        picwi.src = data[keys[i]].pic;
+        namewi.innerHTML = data[keys[i]].name; 
+        temp1.innerHTML = "Price : " + data[keys[i]].price;
+        
+        showwish.children[i].prepend(temp1);
+        showwish.children[i].prepend(namewi);
+        showwish.children[i].prepend(picwi);
      }
      
 }
@@ -105,18 +103,17 @@ function showDataweapon(data){
     var keys = Object.keys(data);
     for(var i =0; i< showweapon.childElementCount;i++)
      {
-        for( var j = 0; j < keys.length; j++)
-        {
-            var picwe = document.createElement("img");
-            var namewe = document.createElement("p");
-            var temp2 = document.createElement("p");
-            picwe.src = data[keys[i]].pic;
-            namewe.innerHTML = data[keys[i]].name; 
-            temp2.innerHTML = "Price : " + data[keys[i]].price;
-        }
-        showweapon.children[i].appendChild(picwe);
-        showweapon.children[i].appendChild(namewe);
-        showweapon.children[i].appendChild(temp2);
+
+        var picwe = document.createElement("img");
+        var namewe = document.createElement("p");
+        var temp2 = document.createElement("p");
+        picwe.src = data[keys[i]].pic;
+        namewe.innerHTML = data[keys[i]].name; 
+        temp2.innerHTML = "Price : " + data[keys[i]].price;
+        
+        showweapon.children[i].prepend(temp2);
+        showweapon.children[i].prepend(namewe);
+        showweapon.children[i].prepend(picwe);      
      }
 }
 function showDatatalent(data){
@@ -124,19 +121,16 @@ function showDatatalent(data){
     var keys = Object.keys(data);
     for(var i =0; i< showtalent.childElementCount;i++)
     {
-       for( var j = 0; j < keys.length; j++)
-       {
-           var picta = document.createElement("img");
-           var nameta = document.createElement("p");
-           var temp3 = document.createElement("p");
-           picta.src = data[keys[i]].pic;
-           nameta.innerHTML = data[keys[i]].name; 
-           temp3.innerHTML = "Price : " + data[keys[i]].price;
-       }
-       showtalent.children[i].appendChild(picta);
-       showtalent.children[i].appendChild(nameta);
-       showtalent.children[i].appendChild(temp3);
-       
+        var picta = document.createElement("img");
+        var nameta = document.createElement("p");
+        var temp3 = document.createElement("p");
+        picta.src = data[keys[i]].pic;
+        nameta.innerHTML = data[keys[i]].name; 
+        temp3.innerHTML = "Price : " + data[keys[i]].price;
+
+       showtalent.children[i].prepend(temp3);
+       showtalent.children[i].prepend(nameta);
+       showtalent.children[i].prepend(picta);      
     }
 }
 
@@ -157,9 +151,34 @@ function PlusItem(data){
     document.getElementById('numstock'+data).value = value;
 }
 
+let cart = [];  
+
 function AddtoCart(data){
-    console.log("Add");
-    var ItemNum = document.getElementById("item"+data);
-    var ItemName = document.getElementById("item"+data);
+    console.log("Add" + data);
+    if (sessionStorage.getItem("cartdata") === null){
+        add1(cart,data);
+    }
+    else{
+        var cartdata = sessionStorage.getItem("cartdata");
+        cart = JSON.parse(cartdata);
+        add1(cart,data);
+    }
 }
+function add1(cart, data){
+        var ItemNum = document.getElementById("item"+data);
+        var itempic = ItemNum.getElementsByTagName('img')[0].src;
+        var itemname = ItemNum.getElementsByTagName('p')[0].innerHTML;
+        var itemprice = ItemNum.getElementsByTagName('p')[1].innerHTML;
+        var itempriceint = itemprice.replace(/\D/g, "");
+        var itemamount = document.getElementById('numstock'+data).value;
+    
+        var itemCartJson = { Name : itemname, Price : itempriceint, Pic : itempic, Amount : itemamount, TotalPrice : parseInt(itempriceint)*parseInt(itemamount)};
+
+    cart.push(itemCartJson);
+    console.log(cart);
+    sessionStorage.setItem("cartdata",JSON.stringify(cart));  
+    sessionStorage.setItem("cartarraykey",JSON.stringify(cart));  
+}
+
+
 
