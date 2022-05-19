@@ -65,8 +65,7 @@ app.post('/regisDB', async (req,res) => {
     sql = `INSERT INTO userInfo (username, email, password,img) VALUES ("${req.body.username}", "${req.body.email}", "${req.body.password}",'avatar.png')`;
     result = await queryDB(sql);
     
-    // let sql_msg = "CREATE TABLE IF NOT EXISTS msgInfo (msg_id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), message VARCHAR(100))";
-    // result = await queryDB(sql_msg);
+    
     
     console.log("New record created successfullyone");
     return res.redirect('index.html');
