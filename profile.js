@@ -21,6 +21,7 @@ function pageLoad(){
 	document.getElementById('fileField').onchange = fileSubmit;
 	document.getElementById('displayPic2').onclick = fileUpload2;
 	document.getElementById('fileField2').onchange = fileSubmit;
+	document.getElementById('logout').onclick = test;
 	
 
 	var username = getCookie('username');
@@ -33,7 +34,9 @@ function pageLoad(){
 	showImg('img/'+getCookie('img'));
 }
 
-
+function test(){
+	sessionStorage.clear();
+}
 function fileUpload(){
 	document.getElementById('fileField').click();
 }

@@ -20,18 +20,12 @@ function getCookie(name){
 function pageLoad(){
     document.getElementById('displayPic').onclick = fileUpload;
 	document.getElementById('fileField').onchange = fileSubmit;
-
 	var username = getCookie('username');
     sessionStorage.clear();
-
 	document.getElementById("username").innerHTML = username;
-    
-
     console.log(getCookie('img'));
 	showImg('img/'+getCookie('img'));
-	var cartdata = sessionStorage.getItem("cartarraykey")
-	UpdateCart(cartdata);
-	sessionStorage.setItem("cartdata",cartdata);
+	
 }
 
 

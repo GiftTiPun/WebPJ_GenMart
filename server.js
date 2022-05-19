@@ -65,8 +65,8 @@ app.post('/regisDB', async (req,res) => {
     sql = `INSERT INTO userInfo (username, email, password,img) VALUES ("${req.body.username}", "${req.body.email}", "${req.body.password}",'avatar.png')`;
     result = await queryDB(sql);
     
-    let sql_msg = "CREATE TABLE IF NOT EXISTS msgInfo (msg_id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), message VARCHAR(100))";
-    result = await queryDB(sql_msg);
+    // let sql_msg = "CREATE TABLE IF NOT EXISTS msgInfo (msg_id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), message VARCHAR(100))";
+    // result = await queryDB(sql_msg);
     
     console.log("New record created successfullyone");
     return res.redirect('index.html');
@@ -89,22 +89,13 @@ app.post('/profilepic', (req,res) => {
         else if (err) {
             return res.send(err);
         }
-        let username = getCookie('username');
-        updateImg(username,req.file.filename)
+        let username = req.cookies.username;
+        updateImg(username,req.file.filename);
         res.cookie('img' , req.file.filename);
         return res.redirect('profile.html')
          
     });
-    function getCookie(name){
-        var value = "";
-        try{
-            // value = document.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
-            value = req.headers.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
-            return value
-        }catch(err){
-            return false
-        } 
-    }
+    
 })
 
 const updateImg = async (username, filen) => {   
@@ -114,7 +105,7 @@ const updateImg = async (username, filen) => {
 }
 
 let tablename = "userinfo";
-//ทำให้สมบูรณ์
+
 app.post('/checkLogin',async (req,res) => {
 
     let sql = `SELECT id, username, password, img FROM ${tablename}`;
@@ -152,6 +143,7 @@ app.post('/checkLogin',async (req,res) => {
 app.get('/logout', (req,res) => {
     res.clearCookie('username');
     res.clearCookie('img');
+    
     return res.redirect('index.html');
 })
 
